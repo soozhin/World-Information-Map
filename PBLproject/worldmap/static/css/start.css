@@ -1,3 +1,17 @@
 .land:hover {
 	fill: aqua;
 }
+
+.country-population {
+	opacity: 1;
+	position: absolute;
+}
+
+h2:hover ~ .country-population {
+	opacity: 0;
+	color: blue;
+}
+
+h2:hover ~ .land {
+	fill: none;
+}
