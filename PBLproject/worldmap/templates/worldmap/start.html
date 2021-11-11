@@ -3,20 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>世界地図</title>
-    <link rel="stylesheet" href="start.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/start.css' %}" />
 </head>
 
 <body>
-    <style>
-        h2 {
-            color: brown;
-        }
-
-        .land:hover {
-            fill: aqua;
-        }
-    </style>
-    
     <h2>世界地図画面</h2>
     <p><a href="{% url 'worldmap:japan' %}">日本</a></p>
 
