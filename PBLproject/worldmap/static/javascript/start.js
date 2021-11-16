@@ -8,6 +8,7 @@ var container = document.getElementsByClassName("container");
 // 表示のところに初期化する
 country_population.innerHTML = default_country_population;
 
+// 新しい「label」を作り，国の名前を入れる
 const country_population_textbox = document.createElement("label");
 country_population_textbox.setAttribute("for", "country-population-textbox");
 country_population_textbox.style.position = "absolute";
@@ -17,6 +18,7 @@ country_population_textbox.style.background = "red";
 // そして，idによって各国のタグを保存しておく
 // それぞれの国にmouseoverが発生したら，自分の国名を表示させて，
 // ポインターが出たら(mouseout)，初期値に戻す
+// 「label」にマウスの位置を提供して，マウスの少し上のところに表示させる
 for (var i = 0; i < all_country.length; i++) {
     country_id[i] = all_country[i].getAttribute("id");
     country[i] = document.getElementById(country_id[i])
