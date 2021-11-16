@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <h2>世界地図画面</h2>
+    <h2 id="world-map-title">世界地図画面</h2>
     <p><a href="{% url 'worldmap:japan' %}">日本</a></p>
+    <div id="country-population">1</div>
 
     <div>
         <?xml version="1.0" encoding="utf-8"?>
@@ -554,7 +555,6 @@
         </svg>
     </div>
 
-    <div class="country-population">国と人口</div>
     <script src="{% static 'javascript/start.js' %}"></script>
 </body>
 

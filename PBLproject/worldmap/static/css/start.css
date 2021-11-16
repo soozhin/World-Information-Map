@@ -2,12 +2,21 @@
 	fill: aqua;
 }
 
-.country-population {
+h2 {
+	color: aqua;
+}
+
+#country-population {
 	opacity: 1;
 	position: absolute;
 }
 
-h2:hover ~ .country-population {
+h2:hover ~ #country-population {
+	opacity: 0;
+	color: blue;
+}
+
+.land:hover ~ #country-population {
 	opacity: 0;
 	color: blue;
 }
