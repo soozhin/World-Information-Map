@@ -1,3 +1,11 @@
+body {
+	/* overflow: hidden; */
+}
+
+.container {
+	position: relative;
+}
+
 .land:hover {
 	fill: aqua;
 }
