@@ -27,6 +27,9 @@ for (var i = 0; i < all_country.length; i++) {
     country_id[i] = all_country[i].getAttribute("id");
     country[i] = document.getElementById(country_id[i])
     country[i].addEventListener("mouseover", showCountryPopulation);
+    if(country_id[i] == "JP"){
+        country[i].addEventListener("mousedown", moveForJapanMap);
+    }
     country[i].addEventListener("mouseout", hideCountryPopulation);
 }
 
@@ -44,6 +47,9 @@ function showCountryPopulation(event) {
     country_population_textbox.style.zIndex = 1;
     document.body.appendChild(country_population_textbox);
 }
+
+function moveForJapanMap(){
+    window.location.href = 'http://127.0.0.1:8000/worldmap/japan';
 
 function hideCountryPopulation(event) {
     country_population_textbox.innerHTML = "";
