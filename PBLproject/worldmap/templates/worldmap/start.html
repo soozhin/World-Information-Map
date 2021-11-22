@@ -8,13 +8,18 @@
         だから，staticファイルを作った．
      -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/start.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/start.css' %}" />
 </head>
 
 <body>
+    <!-- <style>
+        body {
+            overflow: hidden;
+        }
+    </style> -->
     <h2 id="world-map-title">世界地図画面</h2>
     <p><a href="{% url 'worldmap:japan' %}">日本</a></p>
-    <div id="country-population">1</div>
+    <div id="country-population"></div>
 
     <div class="container">
         <?xml version="1.0" encoding="utf-8"?>
