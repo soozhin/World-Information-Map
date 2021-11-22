@@ -1,11 +1,9 @@
-body {
-	overflow: hidden;
-}
-
-.container {
-	position: relative;
-}
-
 .land:hover {
-	fill: violet;
+	fill: darkgreen;
+}
+
+svg {
+	display: block;
+	margin: auto;
+	height: 800px;
 }
