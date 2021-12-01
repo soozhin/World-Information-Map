@@ -23,6 +23,7 @@ for (var i = 0; i < all_todouhuken.length; i++) {
     todouhuken_id[i] = all_todouhuken[i].getAttribute("id");
     todouhuken[i] = document.getElementById(todouhuken_id[i])
     todouhuken[i].addEventListener("mouseover", showtodouhukenPopulation);
+    country[i].addEventListener("mousedown", moveForTodouhukenMap);
     todouhuken[i].addEventListener("mouseout", showDefaulttodouhukenPopulation);
 }
 
@@ -39,4 +40,8 @@ function showtodouhukenPopulation(event) {
 
 function showDefaulttodouhukenPopulation() {
     todouhuken_population.innerHTML = default_todouhuken_population;
+}
+
+function moveForTodouhukenMap(){
+    window.location.herf = "http://127.0.0.1:8000/worldmap/todouhuken";
 }

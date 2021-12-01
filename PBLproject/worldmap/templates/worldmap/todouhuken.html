@@ -2,12 +2,27 @@
 <head>
  <meta charset="UTF-8">
  <title>都道府県</title>
+ {% load static %}
+    <link rel="stylesheet" href="{% static 'css/todouhuken.css' %}" />
+
+
 </head>
 
-<h2>都道府県画面</h2>
-
 <body>
+<h2>日本地図画面</h2>
+	<p><a href="{% url 'worldmap:Japan' %}">戻る</a></p>
+	<div id="sikutyouson-population">1</div>
+
+	<div>都道府県名:{{ todouhuken_id.id }}</div>
+
+	<div class="container">
+
+
+
 
 </body>
 
+
+
 </html>
+

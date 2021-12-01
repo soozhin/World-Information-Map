@@ -50,6 +50,7 @@ function showCountryPopulation(event) {
 
 function moveForJapanMap(){
     window.location.href = 'http://127.0.0.1:8000/worldmap/japan';
+}
 
 function hideCountryPopulation(event) {
     country_population_textbox.innerHTML = "";

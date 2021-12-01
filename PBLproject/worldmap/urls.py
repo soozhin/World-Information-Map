@@ -12,7 +12,7 @@ urlpatterns = [
     # 日本地図画面
     path('japan', views.japanView, name='japan'),
     # 都道府県画面
-    path('todouhuken', views.todouhukenView, name='todouhuken'),
+    path('todouhuken/<int:id>', views.todouhukenView, name='todouhuken'),
 
 ]
 urlpatterns += staticfiles_urlpatterns()

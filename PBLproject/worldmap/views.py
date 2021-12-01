@@ -49,19 +49,18 @@ def japanView(request):
 ########################
 # 都道府県画面表示
 ########################
-def todouhukenView(request):
+def todouhukenView(request, id):
     #展開される出力画面のテンプレート
     template_file = "worldmap/todouhuken.html"
-
-    #----------------------
-    # メイン処理
-    #----------------------
-
-    #----------------------
-    #連想配列の生成
-    options = {
-        
-    }
+    print("up")
+    todouhuken_id = models.todouhuken.objects.get(id=id)
+    print("down")
+    newdata = models.todouhuken.objects.create(
+        id = 1,
+    )
+    newdata.save()
+    print(models.todouhuken.objects.filter(id=1).exists())
+    
     #----------------------
     #テンプレートを展開して結果画面としてブラウザに返す
-    return render(request, template_file, options)
+    return render(request, template_file, {'todouhuken_id':todouhuken_id})
