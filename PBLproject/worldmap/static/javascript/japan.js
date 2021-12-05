@@ -4,6 +4,8 @@ var todouhuken = [];
 var all_todouhuken = document.getElementsByTagName("path");
 var default_todouhuken_population = "todouhuken name and population";
 var container = document.getElementsByClassName("container");
+//ここにどんどん日本の情報をいれよう!!!
+var multiArr_for_japan=[];
 
 // 表示のところに初期化する
 todouhuken_population.innerHTML = default_todouhuken_population;
@@ -26,9 +28,45 @@ for (var i = 0; i < all_todouhuken.length; i++) {
     todouhuken[i].addEventListener("mouseout", showDefaulttodouhukenPopulation);
 }
 
+function getCSV() {
+    var request = new XMLHttpRequest();
+    request.open("GET", "static/csv/JapanPopulationData.csv", true);
+    request.send(null);
+ 
+    request.onload = function () {
+        splitCSV(request.responseText)
+    }
+ }
+
+ function splitCSV(str) {
+    var result = [];
+    var tmp = str.split("\n");
+ 
+    for (var i = 0; i < tmp.length; ++i) {
+        result[i] = tmp[i].split(',');
+    }
+    multiArr_for_japan=multiArray2Obj(result);
+    console.log(multiArr_for_japan);
+}
+
+var multiArray2Obj = arr => {
+    return arr.reduce((acc,val) => {
+        var [key, value]=val;
+        acc[key]=value;
+        return acc;
+    },{});
+}
+getCSV();
+
 function showtodouhukenPopulation(event) {
     todouhuken_population.innerHTML = this.getAttribute("title");
     todouhuken_population_textbox.innerHTML = this.getAttribute("title");
+    var prefecture_name = this.getAttribute("title");
+    var prefecture_information = multiArr_for_japan[prefecture_name]/10+"万";
+
+
+    todouhuken_population_textbox.innerHTML = prefecture_name+"\n"+prefecture_information;
+
     var mouse_x = event.clientX;
     var mouse_y = event.clientY;
     todouhuken_population_textbox.style.top = mouse_y - 25;
