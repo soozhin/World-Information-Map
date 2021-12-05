@@ -64,7 +64,6 @@ function showtodouhukenPopulation(event) {
     var prefecture_name = this.getAttribute("title");
     var prefecture_information = multiArr_for_japan[prefecture_name]/10+"万";
 
-
     todouhuken_population_textbox.innerHTML = prefecture_name+"\n"+prefecture_information;
 
     var mouse_x = event.clientX;
