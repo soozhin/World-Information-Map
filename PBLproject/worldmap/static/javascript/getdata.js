@@ -16,11 +16,27 @@ function getCSV() {
         result[i] = tmp[i].split(',');
     }
  
-    //alert(result[0][1]);
+    alert(result[0][1]);
     
  }
  getCSV();
  
+function array2JsonObject(arr){
+    var key = arr[0];
+
+    var newArr = arr.slice(1,arr.length);
+
+    var json = [], data = newArr, cols = key, l = length;
+
+    for(var i=0;i<data.length; i++){
+        var d=data[i], o={};
+        for(var j=0;j<l;j++){
+            o[cols[j]]=d[j];
+        }
+        json.push(o);
+    }
+    return json;
+}
 
 //  function test(x,y){
 //      return x+y;
