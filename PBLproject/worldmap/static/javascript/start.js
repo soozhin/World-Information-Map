@@ -1,7 +1,9 @@
 var country_id = [];
 var country = [];
 var all_country = document.getElementsByTagName("path");
-var container = document.getElementsByClassName("container");
+//ここにどんどん国情報を入れてこう！
+var multiArr=[];
+
 
 // https://jsfiddle.net/knLbjc9a/4/
 // 上記のサイトからコピペしたコード
@@ -33,8 +35,41 @@ for (var i = 0; i < all_country.length; i++) {
     country[i].addEventListener("mouseout", hideCountryPopulation);
 }
 
-function showCountryPopulation(event) {
-    country_population_textbox.innerHTML = this.getAttribute("title");
+function getCSV() {
+    var request = new XMLHttpRequest();
+    request.open("GET", "static/csv/WorldPopulationData.csv", true);
+    request.send(null);
+ 
+    request.onload = function () {
+        splitCSV(request.responseText)
+    }
+ }
+
+ function splitCSV(str) {
+    var result = [];
+    var tmp = str.split("\n");
+ 
+    for (var i = 0; i < tmp.length; ++i) {
+        result[i] = tmp[i].split(',');
+    }
+    multiArr=multiArray2Obj(result);
+}
+
+var multiArray2Obj = arr => {
+    return arr.reduce((acc,val) => {
+        var [key, value]=val;
+        acc[key]=value;
+        return acc;
+    },{});
+}
+getCSV();
+
+function showCountryPopulation(event){
+    var country_name = this.getAttribute("title");
+    var country_information = multiArr[country_name];
+
+    country_population_textbox.innerHTML = country_name+"\n"+country_information;
+
     var mouse_x = event.clientX;
     var mouse_y = event.clientY;
     var textbox_x = mouse_x - country_population_textbox.clientWidth / 2 + window.pageXOffset;
