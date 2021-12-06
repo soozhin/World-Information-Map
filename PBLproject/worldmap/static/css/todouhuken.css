@@ -1,3 +1,7 @@
+.land {
+	fill: #cccccc;
+}
+
 .land:hover {
 	fill: darkgreen;
 }
