@@ -2,7 +2,7 @@ var country_id = [];
 var country = [];
 var all_country = document.getElementsByTagName("path");
 //ここにどんどん国情報を入れてこう！
-var multiArr=[];
+var multiArr = [];
 
 
 // https://jsfiddle.net/knLbjc9a/4/
@@ -17,7 +17,6 @@ svg.setAttribute("viewBox", viewBox);
 const country_population_textbox = document.createElement("label");
 country_population_textbox.setAttribute("for", "country-population-textbox");
 country_population_textbox.style.position = "absolute";
-country_population_textbox.style.background = "red";
 
 // 世界地図にあるすべての国のidタグを保存しておく
 // そして，idによって各国のタグを保存しておく
@@ -29,7 +28,7 @@ for (var i = 0; i < all_country.length; i++) {
     country_id[i] = all_country[i].getAttribute("id");
     country[i] = document.getElementById(country_id[i])
     country[i].addEventListener("mouseover", showCountryPopulation);
-    if(country_id[i] == "JP"){
+    if (country_id[i] == "JP") {
         country[i].addEventListener("mousedown", moveForJapanMap);
     }
     country[i].addEventListener("mouseout", hideCountryPopulation);
@@ -39,36 +38,36 @@ function getCSV() {
     var request = new XMLHttpRequest();
     request.open("GET", "static/csv/WorldPopulationData.csv", true);
     request.send(null);
- 
-    request.onload = function () {
+
+    request.onload = function() {
         splitCSV(request.responseText)
     }
- }
+}
 
- function splitCSV(str) {
+function splitCSV(str) {
     var result = [];
     var tmp = str.split("\n");
- 
+
     for (var i = 0; i < tmp.length; ++i) {
         result[i] = tmp[i].split(',');
     }
-    multiArr=multiArray2Obj(result);
+    multiArr = multiArray2Obj(result);
 }
 
 var multiArray2Obj = arr => {
-    return arr.reduce((acc,val) => {
-        var [key, value]=val;
-        acc[key]=value;
+    return arr.reduce((acc, val) => {
+        var [key, value] = val;
+        acc[key] = value;
         return acc;
-    },{});
+    }, {});
 }
 getCSV();
 
-function showCountryPopulation(event){
+function showCountryPopulation(event) {
     var country_name = this.getAttribute("title");
     var country_information = multiArr[country_name];
 
-    country_population_textbox.innerHTML = country_name+"\n"+country_information;
+    country_population_textbox.innerHTML = country_name + "\n" + country_information;
 
     var mouse_x = event.clientX;
     var mouse_y = event.clientY;
@@ -80,13 +79,18 @@ function showCountryPopulation(event){
     country_population_textbox.style.top = textbox_y;
     country_population_textbox.style.left = textbox_x;
     country_population_textbox.style.zIndex = 1;
+    country_population_textbox.style.padding = "5px";
+    country_population_textbox.style.background = "white";
+    country_population_textbox.style.padding = "5px";
+
     document.body.appendChild(country_population_textbox);
 }
 
-function moveForJapanMap(){
+function moveForJapanMap() {
     window.location.href = 'http://127.0.0.1:8000/worldmap/japan';
 }
 
 function hideCountryPopulation(event) {
     country_population_textbox.innerHTML = "";
+    country_population_textbox.style.padding = "0";
 }
