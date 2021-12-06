@@ -15,7 +15,7 @@ Seychelles,98340
 Somalia,15893219
 South Sudan,11193729
 Uganda,45741000
-United Republic of Tanzania,59734213
+Tanzania,59734213
 Zambia,18383956
 Zimbabwe,14862927
 Angola,32866268
@@ -23,7 +23,7 @@ Cameroon,26545864
 Central African Republic,4829764
 Chad,16425859
 Congo,5518092
-Democratic Republic of the Congo,89561404
+Democratic Republic of Congo,89561404
 Equatorial Guinea,1402985
 Gabon,2225728
 Sao Tome and Principe,219161
@@ -83,7 +83,7 @@ Afghanistan,38928341
 Bangladesh,164689383
 Bhutan,771612
 India,1380004385
-Iran (Islamic Republic of),83992953
+Iran,83992953
 Maldives,540542
 Nepal,29136808
 Pakistan,220892331
@@ -91,7 +91,7 @@ Sri Lanka,21413250
 China,1439323774
 "China, Hong Kong SAR",7496988
 "China, Macao SAR",649342
-"China, Taiwan Province of China",23816775
+Taiwan,23816775
 Dem. People's Republic of Korea,25778815
 Japan,126476458
 Mongolia,3278292
@@ -106,7 +106,7 @@ Philippines,109581085
 Singapore,5850343
 Thailand,69799978
 Timor-Leste,1318442
-Viet Nam,97338583
+Vietnam,97338583
 Anguilla,15002
 Antigua and Barbuda,97928
 Aruba,106766
@@ -144,7 +144,7 @@ Mexico,128932753
 Nicaragua,6624554
 Panama,4314768
 Argentina,45195777
-Bolivia (Plurinational State of),11673029
+Bolivia,11673029
 Brazil,212559409
 Chile,19116209
 Colombia,50882884
@@ -156,7 +156,7 @@ Paraguay,7132530
 Peru,32971846
 Suriname,586634
 Uruguay,3473727
-Venezuela (Bolivarian Republic of),28435943
+Venezuela,28435943
 Australia,25499881
 New Zealand,4822233
 Fiji,896444
@@ -187,7 +187,7 @@ Hungary,9660350
 Poland,37846605
 Republic of Moldova,4033963
 Romania,19237682
-Russian Federation,145934460
+Russia,145934460
 Slovakia,5459643
 Ukraine,43733759
 Channel Islands,173859
@@ -232,4 +232,4 @@ Bermuda,62273
 Canada,37742157
 Greenland,56772
 Saint Pierre and Miquelon,5795
-United States of America,331002647
+United States,331002647
