@@ -17,7 +17,6 @@ svg.setAttribute("viewBox", viewBox);
 const todouhuken_population_textbox = document.createElement("label");
 todouhuken_population_textbox.setAttribute("for", "todouhuken-population-textbox");
 todouhuken_population_textbox.style.position = "absolute";
-todouhuken_population_textbox.style.background = "red";
 
 // 日本地図にあるすべての都道府県のidタグを保存しておく
 // そして，idによって各都道府県のタグを保存しておく
@@ -70,16 +69,21 @@ function showtodouhukenPopulation(event) {
     var mouse_x = event.clientX;
     var mouse_y = event.clientY;
     var textbox_x = mouse_x - todouhuken_population_textbox.clientWidth / 2 + window.pageXOffset;
-    var textbox_y = mouse_y - 30 + window.pageYOffset;
+    var textbox_y = mouse_y - 40 + window.pageYOffset;
     if (window.pageYOffset + 10 > textbox_y) {
         textbox_y = mouse_y + 10 + window.pageYOffset;
     }
     todouhuken_population_textbox.style.top = textbox_y;
     todouhuken_population_textbox.style.left = textbox_x;
     todouhuken_population_textbox.style.zIndex = 1;
+    todouhuken_population_textbox.style.padding = "5px";
+    todouhuken_population_textbox.style.background = "white";
+    todouhuken_population_textbox.style.padding = "5px";
+
     document.body.appendChild(todouhuken_population_textbox);
 }
 
 function showDefaulttodouhukenPopulation() {
     todouhuken_population_textbox.innerHTML = "";
+    todouhuken_population_textbox.style.padding = "0";
 }

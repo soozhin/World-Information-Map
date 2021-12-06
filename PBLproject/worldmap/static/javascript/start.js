@@ -72,7 +72,7 @@ function showCountryPopulation(event) {
     var mouse_x = event.clientX;
     var mouse_y = event.clientY;
     var textbox_x = mouse_x - country_population_textbox.clientWidth / 2 + window.pageXOffset;
-    var textbox_y = mouse_y - 30 + window.pageYOffset;
+    var textbox_y = mouse_y - 40 + window.pageYOffset;
     if (window.pageYOffset + 10 > textbox_y) {
         textbox_y = mouse_y + 10 + window.pageYOffset;
     }
