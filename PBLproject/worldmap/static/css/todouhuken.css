@@ -1,0 +1,9 @@
+.land:hover {
+	fill: darkgreen;
+}
+
+svg {
+	display: block;
+	margin: auto;
+	height: 800px;
+}
