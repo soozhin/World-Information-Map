@@ -9,7 +9,7 @@ Malawi,19129955
 Mauritius,1271767
 Mayotte,272813
 Mozambique,31255435
-Réunion,895308
+Reunion,895308
 Rwanda,12952209
 Seychelles,98340
 Somalia,15893219
@@ -22,19 +22,18 @@ Angola,32866268
 Cameroon,26545864
 Central African Republic,4829764
 Chad,16425859
-Congo,5518092
+Republic of Congo,5518092
 Democratic Republic of Congo,89561404
 Equatorial Guinea,1402985
 Gabon,2225728
 Sao Tome and Principe,219161
 Botswana,2351625
-Eswatini,1160164
+Swaziland,1160164
 Lesotho,2142252
 Namibia,2540916
 South Africa,59308690
 Benin,12123198
 Burkina Faso,20903278
-Cabo Verde,555988
 Côte d'Ivoire,26378275
 Gambia,2416664
 Ghana,31072945
@@ -69,8 +68,8 @@ Lebanon,6825442
 Oman,5106622
 Qatar,2881060
 Saudi Arabia,34813867
-State of Palestine,5101416
-Syrian Arab Republic,17500657
+Palestinian Territories,5101416
+Syria,17500657
 Turkey,84339067
 United Arab Emirates,9890400
 Yemen,29825968
@@ -89,13 +88,13 @@ Nepal,29136808
 Pakistan,220892331
 Sri Lanka,21413250
 China,1439323774
-"China, Hong Kong SAR",7496988
-"China, Macao SAR",649342
+Hong Kong,7496988
+Macau,649342
 Taiwan,23816775
-Dem. People's Republic of Korea,25778815
+North Korea,25778815
 Japan,126476458
 Mongolia,3278292
-Republic of Korea,51269183
+South Korea,51269183
 Brunei Darussalam,437483
 Cambodia,16718971
 Indonesia,273523621
@@ -112,7 +111,7 @@ Antigua and Barbuda,97928
 Aruba,106766
 Bahamas,393248
 Barbados,287371
-"Bonaire, Sint Eustatius and Saba",26221
+Bonaire Sint Eustatius and Saba,26221
 British Virgin Islands,30237
 Cayman Islands,65720
 Cuba,11326616
@@ -126,15 +125,15 @@ Jamaica,2961161
 Martinique,375265
 Montserrat,4999
 Puerto Rico,2860840
-Saint Barthélemy,9885
+Saint Barthelemy,9885
 Saint Kitts and Nevis,53192
 Saint Lucia,183629
-Saint Martin (French part),38659
+Saint Martin,38659
 Saint Vincent and the Grenadines,110947
-Sint Maarten (Dutch part),42882
+Sint Maarten,42882
 Trinidad and Tobago,1399491
 Turks and Caicos Islands,38718
-United States Virgin Islands,104423
+US Virgin Islands,104423
 Belize,397621
 Costa Rica,5094114
 El Salvador,6486201
@@ -149,7 +148,7 @@ Brazil,212559409
 Chile,19116209
 Colombia,50882884
 Ecuador,17643060
-Falkland Islands (Malvinas),3483
+Falkland Islands,3483
 French Guiana,298682
 Guyana,786559
 Paraguay,7132530
@@ -167,7 +166,7 @@ Vanuatu,307150
 Guam,168783
 Kiribati,119446
 Marshall Islands,59194
-Micronesia (Fed. States of),115021
+Federated States of Micronesia,115021
 Nauru,10834
 Northern Mariana Islands,57557
 Palau,18092
@@ -179,18 +178,17 @@ Samoa,198410
 Tokelau,1350
 Tonga,105697
 Tuvalu,11792
-Wallis and Futuna Islands,11246
+Wallis and Futuna,11246
 Belarus,9449321
 Bulgaria,6948445
 Czechia,10708982
 Hungary,9660350
 Poland,37846605
-Republic of Moldova,4033963
+Moldova,4033963
 Romania,19237682
 Russia,145934460
 Slovakia,5459643
 Ukraine,43733759
-Channel Islands,173859
 Denmark,5792203
 Estonia,1326539
 Faroe Islands,48865
@@ -209,7 +207,6 @@ Bosnia and Herzegovina,3280815
 Croatia,4105268
 Gibraltar,33691
 Greece,10423056
-Holy See,809
 Italy,60461828
 Malta,441539
 Montenegro,628062
@@ -233,3 +230,4 @@ Canada,37742157
 Greenland,56772
 Saint Pierre and Miquelon,5795
 United States,331002647
+Svalbard and Jan Mayen,2642
