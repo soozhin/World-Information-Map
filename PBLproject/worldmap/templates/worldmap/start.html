@@ -7,7 +7,7 @@
 		></script>
 		<meta charset="UTF-8" />
 		<title>世界地図</title>
-		<!-- 
+		<!--
         staticというファイルからcssや画像などを読み込むことがおすすめらしい．
         だから，staticファイルを作った．
      -->
@@ -1593,6 +1593,11 @@
 				</g>
 			</svg>
 		</div>
+
+		<div class="contents">
+			<img class="image" width="20%"
+			height="40%" src= "{% static 'worldpopulationscale.png' %}" />
+		  </div>
 
 		<script src="{% static '/javascript/start.js' %}"></script>
 	</body>
