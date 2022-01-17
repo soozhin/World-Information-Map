@@ -16,7 +16,7 @@
 	{% load static %}
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="" />
+	<link rel="stylesheet" href="{% static 'css/todouhuken.css' %}" />
 </head>
 
 <body>
@@ -26,7 +26,8 @@
 		}
 	</style>
 
-	<h1>大阪府</h1>
+	<h2>大阪府</h2>
+	<p><a href="{% url 'worldmap:japan' %}">戻る</a></p>
 
 	<div id="map">
 		<?xml version="1.0" encoding="UTF-8"?>
@@ -36,8 +37,6 @@
 				xmlns="http://www.w3.org/2000/svg"
 				version="1.1"
 				baseProfile="full"
-				width="800"
-				height="534"
 			>
 			<defs>
 				<style type="text/css">

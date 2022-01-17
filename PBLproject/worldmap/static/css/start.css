@@ -5,7 +5,7 @@
 svg {
 	display: block;
 	margin: auto;
-	height: 800px;
+	height: 80%;
 }
 
 h2 {
@@ -20,8 +20,8 @@ h2 {
    
   .image {
 	position: absolute;
-	bottom:680px;
-	left: 1230px;
+	bottom: 5%;
+	left: 0%;
 	width: 200px;
 	height: 200px;
   }
