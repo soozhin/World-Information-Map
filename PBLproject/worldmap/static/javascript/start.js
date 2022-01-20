@@ -84,6 +84,57 @@ async function EventFunction() {
 
     SetColor(multiArr_for_country);
 
+    // https://codepen.io/stack-findover/pen/VwPgQQr
+    // 上記のウェブサイトを参考にした
+    var scale = 1,
+        panning = false,
+        pointX = 0,
+        pointY = 0,
+        start = { x: 0, y: 0 },
+        zoom = document.getElementsByTagName("svg")[0];
+
+    function setTransform() {
+        zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
+    }
+
+    zoom.onmousedown = function(e) {
+        e.preventDefault();
+        start = { x: e.clientX - pointX, y: e.clientY - pointY };
+        panning = true;
+    }
+
+    zoom.onmouseup = function(e) {
+        panning = false;
+    }
+
+    zoom.onmousemove = function(e) {
+        e.preventDefault();
+        if (!panning) {
+            return;
+        }
+        pointX = (e.clientX - start.x);
+        pointY = (e.clientY - start.y);
+        setTransform();
+    }
+
+    zoom.onwheel = function(e) {
+        e.preventDefault();
+        var xs = (e.clientX - pointX) / scale,
+            ys = (e.clientY - pointY) / scale,
+            delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+        (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
+        if (delta > 0) {
+            pointX = e.clientX - xs * scale + 65;
+            pointY = e.clientY - ys * scale + 10;
+        } else {
+            pointX = e.clientX - xs * scale - 55;
+            pointY = e.clientY - ys * scale - 10;
+        }
+
+
+        setTransform();
+    }
+
     // 新しい「label」を作り，国の名前を入れる
     const country_population_textbox = document.createElement("label");
     country_population_textbox.setAttribute("for", "country-population-textbox");
