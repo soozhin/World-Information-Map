@@ -101,10 +101,12 @@ async function EventFunction() {
         e.preventDefault();
         start = { x: e.clientX - pointX, y: e.clientY - pointY };
         panning = true;
+        this.style.cursor = "grabbing";
     }
 
     zoom.onmouseup = function(e) {
         panning = false;
+        this.style.cursor = "default";
     }
 
     zoom.onmousemove = function(e) {
@@ -114,6 +116,7 @@ async function EventFunction() {
         }
         pointX = (e.clientX - start.x);
         pointY = (e.clientY - start.y);
+        this.style.cursor = "grabbing";
         setTransform();
     }
 
