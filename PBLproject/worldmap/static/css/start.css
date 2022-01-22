@@ -6,6 +6,8 @@ svg {
 	display: block;
 	margin: auto;
 	height: 80%;
+	transform-origin: 0px 0px;
+	transform: scale(1) translate(0px, 0px);
 }
 
 h2 {
@@ -16,12 +18,12 @@ h2 {
 	position: relative;
 	width: 40px;
 	height: 40px;
-  }
-   
-  .image {
+}
+
+.image {
 	position: absolute;
 	bottom: 5%;
 	left: 0%;
 	width: 200px;
 	height: 200px;
-  }
+}
