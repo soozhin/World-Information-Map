@@ -1,94 +1,150 @@
 // define url
-var csv_url="static/csv/JapanPopulationData.csv"
+var csv_url = "static/csv/JapanPopulationData.csv"
 
 // 関数の実行
 PlotJapan()
-.then(EventFunction)
-.catch(err=>{
-    console.log(err);
-});
+    .then(EventFunction)
+    .catch(err => {
+        console.log(err);
+    });
 
 // 日本の描画
-async function PlotJapan(){
-    try{
+async function PlotJapan() {
+    try {
         return await new Promise((resolve, reject) => {
             var svg = document.getElementsByTagName("svg")[0];
             var bbox = svg.getBBox();
             var viewBox = [bbox.x, bbox.y, bbox.width, bbox.height].join(" ");
             resolve(svg.setAttribute("viewBox", viewBox));
         });
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
 
 // csvファイルを入手
-const pre_arr = fetch(csv_url,{
-    method:"GET",
-}).then(response=>response.text())
-.then(text=>{
-    var result = [];
-    var tmp = text.split("\n");
-        
-    for(var i = 0; i < tmp.length; ++i) {
-        result[i] = tmp[i].split(',');
-    }
-    return result;
-})
-.then(response=>{
-    return response.reduce((acc,val)=>{
-        var [key, value] = val;
-        acc[key] = value;
-        return acc;
-    },{});
-})
-.catch(err=>{
-    console.log(err);
-});
+const pre_arr = fetch(csv_url, {
+        method: "GET",
+    }).then(response => response.text())
+    .then(text => {
+        var result = [];
+        var tmp = text.split("\n");
+
+        for (var i = 0; i < tmp.length; ++i) {
+            result[i] = tmp[i].split(',');
+        }
+        return result;
+    })
+    .then(response => {
+        return response.reduce((acc, val) => {
+            var [key, value] = val;
+            acc[key] = value;
+            return acc;
+        }, {});
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 // 色の設定
-function SetColor(str){
+function SetColor(str) {
     let pref_keys = Object.keys(str);
 
-    const pref_id=[];
-    for (let i=0; i<47; i++){
-        if (i<9){
-            let j = i+1;
-            pref_id[i] = "JP-0"+j;
-        }else{
-            let k=i+1
-            pref_id[i] = "JP-"+k;
+    const pref_id = [];
+    for (let i = 0; i < 47; i++) {
+        if (i < 9) {
+            let j = i + 1;
+            pref_id[i] = "JP-0" + j;
+        } else {
+            let k = i + 1
+            pref_id[i] = "JP-" + k;
         }
     }
 
-    pref2code = pref_id.reduce((acc,cur,idx)=>{
+    pref2code = pref_id.reduce((acc, cur, idx) => {
         acc[pref_keys[idx]] = cur;
         return acc;
-    },{});
+    }, {});
 
-    for (let i in pref2code){
+    for (let i in pref2code) {
         let pop = str[i];
-        if(pop>5000){
-            $("#"+pref2code[i]).css("fill","mediumblue");
-        }else if(1000<pop && pop<=5000){
-            $("#"+pref2code[i]).css("fill","royalblue");
-        }else{
-            $("#"+pref2code[i]).css("fill","lightskyblue");
+        if (pop > 5000) {
+            $("#" + pref2code[i]).css("fill", "mediumblue");
+        } else if (1000 < pop && pop <= 5000) {
+            $("#" + pref2code[i]).css("fill", "royalblue");
+        } else {
+            $("#" + pref2code[i]).css("fill", "lightskyblue");
         }
     }
 }
 
 // イベントの定義
-async function EventFunction(){
+async function EventFunction() {
     var todouhuken_id = [];
     var todouhuken = [];
     var all_todouhuken = document.getElementsByTagName("path");
     var container = document.getElementsByClassName("container");
-    var pref2code=[];
+    var pref2code = [];
 
     var multiArr_for_japan = await pre_arr;
 
     SetColor(multiArr_for_japan);
+
+    // https://codepen.io/stack-findover/pen/VwPgQQr
+    // 上記のウェブサイトを参考にした
+    var scale = 1,
+        panning = false,
+        pointX = 0,
+        pointY = 0,
+        start = { x: 0, y: 0 },
+        zoom = document.getElementsByTagName("svg")[0];
+
+    function setTransform() {
+        zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
+    }
+
+    zoom.onmousedown = function(e) {
+        e.preventDefault();
+        start = { x: e.clientX - pointX, y: e.clientY - pointY };
+        panning = true;
+        this.onclick = null;
+        this.style.cursor = "grabbing";
+    }
+
+    zoom.onmouseup = function(e) {
+        panning = false;
+        this.onclick = null;
+        this.style.cursor = "default";
+    }
+
+    zoom.onmousemove = function(e) {
+        e.preventDefault();
+        if (!panning) {
+            return;
+        }
+        pointX = (e.clientX - start.x);
+        pointY = (e.clientY - start.y);
+        this.onclick = null;
+        setTransform();
+    }
+
+    zoom.onwheel = function(e) {
+        e.preventDefault();
+        var xs = (e.clientX - pointX) / scale,
+            ys = (e.clientY - pointY) / scale,
+            delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+        (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
+        if (delta > 0) {
+            pointX = e.clientX - xs * scale + 90;
+            pointY = e.clientY - ys * scale + 20;
+        } else {
+            pointX = e.clientX - xs * scale - 90;
+            pointY = e.clientY - ys * scale - 20;
+        }
+
+
+        setTransform();
+    }
 
     const todouhuken_population_textbox = document.createElement("label");
     todouhuken_population_textbox.setAttribute("for", "todouhuken-population-textbox");
@@ -104,9 +160,9 @@ async function EventFunction(){
     function showtodouhukenPopulation(event) {
         var prefecture_name = this.getAttribute("title");
         var prefecture_information = multiArr_for_japan[prefecture_name] / 10 + "万";
-    
+
         todouhuken_population_textbox.innerHTML = prefecture_name + "\n" + prefecture_information;
-    
+
         var mouse_x = event.clientX;
         var mouse_y = event.clientY;
         var textbox_x = mouse_x - todouhuken_population_textbox.clientWidth / 2 + window.pageXOffset;
@@ -120,19 +176,19 @@ async function EventFunction(){
         todouhuken_population_textbox.style.padding = "5px";
         todouhuken_population_textbox.style.background = "white";
         todouhuken_population_textbox.style.padding = "5px";
-    
+
         document.body.appendChild(todouhuken_population_textbox);
     }
-    
+
     function showDefaulttodouhukenPopulation() {
         todouhuken_population_textbox.innerHTML = "";
         todouhuken_population_textbox.style.padding = "0";
     }
 
     // hover
-    $(".land").hover(function(){
-        $(this).css("fill-opacity","0.3");
-    },function(){
-        $(this).css("fill-opacity","1");
+    $(".land").hover(function() {
+        $(this).css("fill-opacity", "0.3");
+    }, function() {
+        $(this).css("fill-opacity", "1");
     });
-} 
+}
