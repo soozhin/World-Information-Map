@@ -1,0 +1,29 @@
+.land:hover {
+	fill: darkgreen;
+}
+
+svg {
+	display: block;
+	margin: auto;
+	height: 80%;
+	transform-origin: 0px 0px;
+	transform: scale(1) translate(0px, 0px);
+}
+
+h2 {
+	text-align: center;
+}
+
+.Tokyo1 {
+	position: relative;
+	width: 75px;
+	height: 750px;
+}
+
+.Tokyo2 {
+	position: absolute;
+	bottom: 100%;
+	left: 0%;
+	width: 300px;
+	height: 300px;
+}
